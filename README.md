@@ -11,4 +11,3 @@
 
 ## Aula 02
 
-### Assuntos:
