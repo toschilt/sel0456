@@ -1,4 +1,4 @@
-# Disciplina SEL0456
+# Desenvolvimento de Software para Sistemas Embarcados com Sistemas Operacionais
 
 ## Aula 01
 
