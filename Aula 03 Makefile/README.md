@@ -10,6 +10,10 @@ Supondo um arquivo * `helloworld.c`, há alguns comandos que podem ser realizado
 - * `gcc helloworld.c -c` --> Cria um arquivo com objetos alocáveis * `helloworld.o`
 - * `gcc helloworld.c -s` --> Cria um código em assembly do programa, nomeado * `helloworld.s`
 
+# Separação em Arquivos
+
+Para arquivos muito grandes, normalmente é conveniente ter o código dividido em diversos arquivos
+
 
 # Makefile
 
