@@ -1,3 +1,10 @@
+# Definição de variáveis
+DFLAGS = $(patsubst %, -D%, OPTION1 OPTION3)
+
+# -Ox --> Flags de otimização
+CFLAGS = -O2 $(DFLAGS) -g
+LDFLAGS = -lm
+
 ALL = main
 
 # $^ --> Todas as dependências
@@ -11,11 +18,11 @@ main: main.c square.c
 run:
 	./main
 
-assembly:
-	gcc -Os main.c -o main
+%.s: %.c
+	gcc -S $<
 
 clean:
-	rm -f *.o *.s a.out
+	rm -f *.o *.s a.out $(ALL)
 
 distclean: clean
 	rm -r $(ALL)
