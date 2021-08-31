@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <pthread.h>
+#include <unistd.h>
 
 #include "sqr.h"
 #include "mult_acc.h"
@@ -11,6 +12,7 @@ void *count(void *ptr) {
     volatile unsigned int i;
     for(i = 0; i < 0xfffffff; i++);
     printf("finished in thread\n");
+    pthread_exit(NULL); //Valor de retorno da thread, é salvo no ponteiro de pthread_join
     return NULL;
 }
 
@@ -38,11 +40,13 @@ int main(void) {
     z = mult_acc(4);
     printf("multacc=%d\n", z);
 
-    volatile unsigned int i;
-    for(i = 0; i < 0xfffffff; i++);
+    // volatile unsigned int i;
+    // for(i = 0; i < 0xfffffff; i++);
+    sleep(10); 
     printf("finished in main\n");
 
-    thread_join(&thr, NULL);
+
+    pthread_join(thr, NULL);
     //Faz com que a main espere a finalização da thread para encerrar o programa
 
     return 0;

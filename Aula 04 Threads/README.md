@@ -22,8 +22,22 @@ Permitem que tarefas sejam executadas em paralelo com o código original
 
 Para a utilização de threads, é necessário fazer uso da biblioteca `pthread.h`
 
+Não é necessário mais de um núcleo para a utilização de threads. É possível fazer uso da função sleep.
+
+O sleep cancela a execução da thread primária enquanto processa threads paralelas (análogo a aguardar uma interrupção).
+
+* A stack não é compartilhada entre threads
+
+
+### Criação
+
 A criação de uma nova thread pode ser realizada através da função abaixo
 `int pthread_create(pthread_t *thread, pthread_attr_t *atributos, rotina, restrict *args)`
 
 A função acima retorna 0 caso tudo ocorra como esperado.
 
+### Sequencia
+
+A princípio, caso a rotina principal finalize antes da thread, o programa mata a thread e encerra com sucesso.
+
+Caso se deseje aguardar o término da thread, é necessário utilizar a função `pthread_join(pthread_t thread, retorno)`
