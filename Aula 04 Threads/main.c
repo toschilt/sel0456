@@ -1,9 +1,9 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <pthread.h>
 
 #include "sqr.h"
 #include "mult_acc.h"
-#include <pthread.h>
 
 double x = 9;
 
@@ -28,6 +28,7 @@ int main(void) {
     #endif
 
     int r = pthread_create(&thr, NULL, count, NULL);
+    //Cria uma nova thread
 
     printf("O quadrado de %g é %g\n", y, sqr(y));
     /* inicializar x no módulo mult_acc */
@@ -40,6 +41,9 @@ int main(void) {
     volatile unsigned int i;
     for(i = 0; i < 0xfffffff; i++);
     printf("finished in main\n");
+
+    thread_join(&thr, NULL);
+    //Faz com que a main espere a finalização da thread para encerrar o programa
 
     return 0;
 }

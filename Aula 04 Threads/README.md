@@ -20,10 +20,10 @@ Variáveis do tipo volatile são utilizadas para armazenar endereços de memóri
 
 Permitem que tarefas sejam executadas em paralelo com o código original
 
-Para a utilização de threads, é necessário fazer uso da biblioteca `pthread.h'
+Para a utilização de threads, é necessário fazer uso da biblioteca `pthread.h`
 
 A criação de uma nova thread pode ser realizada através da função abaixo
-`int pthread_create(pthread_t *thread, pthread_attr_t *atributos, rotina, restrict *args)'
+`int pthread_create(pthread_t *thread, pthread_attr_t *atributos, rotina, restrict *args)`
 
 A função acima retorna 0 caso tudo ocorra como esperado.
 

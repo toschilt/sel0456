@@ -1,5 +1,5 @@
 # Definição de variáveis
-DFLAGS = $(patsubst %, -D%, OPTION1 OPTION3)
+DFLAGS = $(patsubst %, -D%, OPTION1 OPTION2 OPTION3)
 
 # -Ox --> Flags de otimização
 CFLAGS = -O2 $(DFLAGS) -g
