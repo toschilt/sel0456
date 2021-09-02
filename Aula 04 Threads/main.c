@@ -32,7 +32,7 @@ int main(void) {
     double y;
     int z;
 
-    sem_init(&sem, 0, 2);
+    sem_init(&sem, 0, 1);
     //Endereço do semáforo, shared, quantidade de tarefas que podem acessá-lo por vez
 
     pthread_t thr[3];
@@ -43,8 +43,11 @@ int main(void) {
     x = 1.4142;
     #endif
 
+    int p[3];
+
     for(int n = 0; n < 3; n++) {
-        int r = pthread_create(&(thr[n]), NULL, count, &n);
+        p[n] = n;
+        int r = pthread_create(&(thr[n]), NULL, count, &(p[n]));
         if(r == 0) { printf("created thread %d\n", n); }
     }
     
@@ -62,13 +65,13 @@ int main(void) {
 
     // volatile unsigned int i;
     // for(i = 0; i < 0xfffffff; i++);
-    sleep(4);
+    pthread_detach(thr[0]);
+    sleep(1);
     printf("finished in main\n");
 
 
-    pthread_join(thr[0], NULL);
-    pthread_join(thr[1], NULL);
     pthread_join(thr[2], NULL);
+    pthread_join(thr[1], NULL);
     //Faz com que a main espere a finalização da thread para encerrar o programa
 
     return 0;

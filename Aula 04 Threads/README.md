@@ -59,9 +59,8 @@ Em caso de multi-threading, pode ocorrer de diferentes processos acessarem o mes
 Assim, é necessário sincronizar o acesso aos dados, através de `semáforos`
 
 
-## Semáforos
+#### Semáforos
 
 Semáforos permitem que uma linha de código seja executada apenas por uma thread específica
 
 A utilização destes depende da biblioteca `semaphore.h`
-
