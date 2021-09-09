@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/161EAC0D1249AD81/Codes/Disciplinas/Desenvolvimento de Software para Sistemas Embarcados/sel0456/Aula 06 CMake/main.c
+stdlib.h
+-
+stdio.h
+-
+pthread.h
+-
+unistd.h
+-
+semaphore.h
+-
+sqr.h
+/mnt/161EAC0D1249AD81/Codes/Disciplinas/Desenvolvimento de Software para Sistemas Embarcados/sel0456/Aula 06 CMake/sqr.h
+mult_acc.h
+/mnt/161EAC0D1249AD81/Codes/Disciplinas/Desenvolvimento de Software para Sistemas Embarcados/sel0456/Aula 06 CMake/mult_acc.h
+
+/mnt/161EAC0D1249AD81/Codes/Disciplinas/Desenvolvimento de Software para Sistemas Embarcados/sel0456/Aula 06 CMake/mult_acc.c
+mult_acc.h
+/mnt/161EAC0D1249AD81/Codes/Disciplinas/Desenvolvimento de Software para Sistemas Embarcados/sel0456/Aula 06 CMake/mult_acc.h
+
+/mnt/161EAC0D1249AD81/Codes/Disciplinas/Desenvolvimento de Software para Sistemas Embarcados/sel0456/Aula 06 CMake/mult_acc.h
+
+/mnt/161EAC0D1249AD81/Codes/Disciplinas/Desenvolvimento de Software para Sistemas Embarcados/sel0456/Aula 06 CMake/sqr.c
+
+/mnt/161EAC0D1249AD81/Codes/Disciplinas/Desenvolvimento de Software para Sistemas Embarcados/sel0456/Aula 06 CMake/sqr.h
+
