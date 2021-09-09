@@ -17,8 +17,7 @@ write_data (FILE * stream)
     }
 }
 
-int
-main (void)
+int main (void)
 {
   FILE *in;
   size_t n = SSIZE;
