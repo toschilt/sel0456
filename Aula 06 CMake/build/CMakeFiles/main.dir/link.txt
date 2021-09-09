@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/main.dir/main.c.o CMakeFiles/main.dir/mult_acc.c.o CMakeFiles/main.dir/sqr.c.o -o main  -lpthread 
