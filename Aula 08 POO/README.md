@@ -15,3 +15,6 @@ Linguagens mais recentes também permitem o uso de programação funcional
 
 O uso de C++ é interessante, uma vez que permite integração com códigos em C, além de possuir a mesma sintaxe e exigir menos RAM.
 
+### Métodos
+
+Métodos são funções que garantem a consistência de um determinado objeto. Para um contador, por exemplo, métodos garantem que o contador funcionará dentro das limitadções definidas pelo programador, não deixando que o usuário o "estrague".
