@@ -18,3 +18,8 @@ O uso de C++ é interessante, uma vez que permite integração com códigos em C
 ### Métodos
 
 Métodos são funções que garantem a consistência de um determinado objeto. Para um contador, por exemplo, métodos garantem que o contador funcionará dentro das limitadções definidas pelo programador, não deixando que o usuário o "estrague".
+
+
+## Classes
+
+Conjunto abstrato de dados. Definição do que será utilizado.

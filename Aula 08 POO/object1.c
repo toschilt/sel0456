@@ -1,20 +1,10 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include "object1.h"
 
 /*
  * Conta do valor min ao valor max, sempre limitado a estes
 */
-//Estrutura opaca
-typedef struct _range {
-    int val;
-    int max, min;
-} _range_t;
-
-//Estrutrura pública
-typedef struct range {
-    char buf[sizeof(struct _range)];
-} range_t;
-
 /* Métodos */
 
 //Construtor
