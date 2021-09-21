@@ -2,6 +2,7 @@
 #define _RANGE_H
 
 
+typedef struct _range _range_t; 
 
 //Estrutrura pública
 typedef struct range {

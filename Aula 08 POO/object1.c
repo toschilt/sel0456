@@ -2,6 +2,11 @@
 #include <stdio.h>
 #include "object1.h"
 
+struct _range {
+    int min, max;
+    int val;
+};
+
 /*
  * Conta do valor min ao valor max, sempre limitado a estes
 */
