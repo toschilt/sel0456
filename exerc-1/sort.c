@@ -18,7 +18,7 @@ void sort(item_t * a, int n) {
   int i = 0, j = 0;
   int s = 1;
 
-  for(; i < n && s != 0; i++) {
+  for(int n0 = n; i < n0 && s != 0; i++) {
     s = 0;
     for(j = 0; j < n-1; j++)
       if(a[j].key > a[j+1].key) {
