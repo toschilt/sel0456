@@ -12,7 +12,7 @@ void* aMalloc_( size_t size, const char *file, int line, const char *func ) {
   //printf("%s:%d: in func %s: aMalloc %ld\n",file,line,func,size);
   if(ret == NULL){
     printf("%s:%d: in func %s: aMalloc error out of memory!\n",file,line,func);
-    system("pause");
+    //system("pause");
     exit(1);
   }
   return ret;
@@ -22,8 +22,8 @@ void* aRealloc_(void *p, size_t size, const char *file, int line, const char *fu
   void *ret = realloc(p, size);
   //printf("%s:%d: in func %s: aRealloc %ld\n",file,line,func,size);
   if(ret == NULL){
-    printf("%s:%d: in func %s: aMalloc error out of memory!\n",file,line,func);
-    system("pause");
+    printf("%s:%d: in func %s: aRealloc error out of memory!\n",file,line,func);
+    //system("pause");
     exit(1);
   }
   return ret;
