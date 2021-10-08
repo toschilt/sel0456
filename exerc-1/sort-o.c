@@ -71,10 +71,11 @@ item_t * add_array(item_t * a, int * n, char * d, int k) {
   return array;
 }
 
-void del_array(item_t * a, int n) {
-  for(int i=0; i<n; i++)
+void del_array(item_t * a, int * n) {
+  for(int i=0; i<*n; i++)
     aFree(a[i].data);
   aFree(a);
+  *n = 0;
 }
 
 void print_array(item_t * a, int n) {
@@ -115,7 +116,7 @@ int main(void) {
 
   sort(array, 5);
   print_array(array, n_array);
-  del_array(array, n_array);
+  del_array(array, &n_array);
 
   return 0;
 }
