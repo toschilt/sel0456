@@ -7,10 +7,10 @@
 #define   aRealloc(p,n) aRealloc_(p,n,ALC_MARK)
 #define   aFree(p)      aFree_(p,ALC_MARK)
 
-void* aMalloc_( size_t size, const char *file, int line, const char *func ) {
+void* aMalloc_(size_t size, const char *file, int line, const char *func) {
   void *ret = malloc(size);
   //printf("%s:%d: in func %s: aMalloc %ld\n",file,line,func,size);
-  if(ret == NULL){
+  if(ret == NULL) {
     printf("%s:%d: in func %s: aMalloc error out of memory!\n",file,line,func);
     //system("pause");
     exit(1);
@@ -21,7 +21,7 @@ void* aMalloc_( size_t size, const char *file, int line, const char *func ) {
 void* aRealloc_(void *p, size_t size, const char *file, int line, const char *func) {
   void *ret = realloc(p, size);
   //printf("%s:%d: in func %s: aRealloc %ld\n",file,line,func,size);
-  if(ret == NULL){
+  if(ret == NULL) {
     printf("%s:%d: in func %s: aRealloc error out of memory!\n",file,line,func);
     //system("pause");
     exit(1);
@@ -36,7 +36,7 @@ void aFree_(void *p, const char *file, int line, const char *func) {
   p = NULL;
 }
 
-void printTitle() {
+void printTitle(void) {
   printf("\n");
   printf("          (=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-)\n");
   printf("          (                     SEL0456 - Exercício 1                      )\n");
@@ -57,16 +57,18 @@ typedef struct {
 } item_t;
 
 item_t * add_array(item_t * a, int * n, char * d, int k) {
-  item_t * self;
-  
-  if ( (*n) == 0 ) { self = aMalloc(sizeof(item_t)); }
-  else { self = aRealloc(a, sizeof(item_t) * ((*n)+1)); }
-  self[*n].data = aMalloc( strlen(d)+1 );
-  strcpy(self[*n].data, d);
-  self[*n].key = k;
+  item_t * array;
+  if (*n == 0)
+    array = aMalloc(sizeof(item_t));
+  else
+    array = aRealloc(a, sizeof(item_t) * ((*n)+1));
+
+  array[*n].data = aMalloc(strlen(d)+1);
+  strcpy(array[*n].data, d);
+  array[*n].key = k;
   (*n)++;
-  
-  return self;
+
+  return array;
 }
 
 void del_array(item_t * a, int n) {
@@ -99,7 +101,7 @@ void sort(item_t * a, int n) {
 
 int main(void) {
   printTitle();
-  
+
   // Data
   char *data[] = { "bill", "neil", "john", "rick", "alex" };
   int key[] = { 3, 4, 2, 5, 1 };
@@ -107,11 +109,10 @@ int main(void) {
   // Objeto
   item_t * array;
   int n_array = 0;
-  
-  for(int i=0; i<5; i++) {
+
+  for(int i=0; i<5; i++)
     array = add_array(array, &n_array, data[i], key[i]);
-  }
-  
+
   sort(array, 5);
   print_array(array, n_array);
   del_array(array, n_array);
