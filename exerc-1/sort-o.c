@@ -1,39 +1,39 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include "malloc.h"
 
-#define   ALC_MARK      __FILE__, __LINE__, __func__
-#define   aMalloc(n)    aMalloc_(n,ALC_MARK)
-#define   aRealloc(p,n) aRealloc_(p,n,ALC_MARK)
-#define   aFree(p)      aFree_(p,ALC_MARK)
+void printTitle(void);
 
-void* aMalloc_(size_t size, const char *file, int line, const char *func) {
-  void *ret = malloc(size);
-  //printf("%s:%d: in func %s: aMalloc %ld\n",file,line,func,size);
-  if(ret == NULL) {
-    printf("%s:%d: in func %s: aMalloc error out of memory!\n",file,line,func);
-    //system("pause");
-    exit(1);
-  }
-  return ret;
-}
+typedef struct {
+  char * data;
+  int key;
+} item_t;
 
-void* aRealloc_(void *p, size_t size, const char *file, int line, const char *func) {
-  void *ret = realloc(p, size);
-  //printf("%s:%d: in func %s: aRealloc %ld\n",file,line,func,size);
-  if(ret == NULL) {
-    printf("%s:%d: in func %s: aRealloc error out of memory!\n",file,line,func);
-    //system("pause");
-    exit(1);
-  }
-  return ret;
-}
+item_t * add_array(item_t * a, int * n, char * d, int k);
+void del_array(item_t * a, int * n);
+void print_array(item_t * a, int n);
+void sort(item_t * a, int n);
 
-void aFree_(void *p, const char *file, int line, const char *func) {
-  //printf("%s:%d: in func %s: aFree %p\n",file,line,func,p);
-  if (p)
-    free(p);
-  p = NULL;
+int main(void) {
+  printTitle();
+
+  // Data
+  char *data[] = { "bill", "neil", "john", "rick", "alex" };
+  int key[] = { 3, 4, 2, 5, 1 };
+
+  // Object
+  item_t * array;
+  int n_array = 0;
+
+  for(int i=0; i<5; i++)
+    array = add_array(array, &n_array, data[i], key[i]);
+
+  sort(array, 5);
+  print_array(array, n_array);
+  del_array(array, &n_array);
+
+  return 0;
 }
 
 void printTitle(void) {
@@ -50,11 +50,6 @@ void printTitle(void) {
   printf("          (                                                                )\n");
   printf("          (=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-)\n\n");
 }
-
-typedef struct {
-  char * data;
-  int key;
-} item_t;
 
 item_t * add_array(item_t * a, int * n, char * d, int k) {
   item_t * array;
@@ -98,25 +93,4 @@ void sort(item_t * a, int n) {
       }
     n--;
   }
-}
-
-int main(void) {
-  printTitle();
-
-  // Data
-  char *data[] = { "bill", "neil", "john", "rick", "alex" };
-  int key[] = { 3, 4, 2, 5, 1 };
-
-  // Objeto
-  item_t * array;
-  int n_array = 0;
-
-  for(int i=0; i<5; i++)
-    array = add_array(array, &n_array, data[i], key[i]);
-
-  sort(array, 5);
-  print_array(array, n_array);
-  del_array(array, &n_array);
-
-  return 0;
 }
