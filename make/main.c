@@ -14,7 +14,7 @@ sem_t sem;
 void * conta_a_toa(void * ptr) {
   /* volatile unsigned int i; */
   register int j;
-  int n = *(int *)ptr;
+  int n = *(int *)ptr
   printf("Na thread no. %d\n", n);
   /* for(i=0; i < 0xffffffff ;i++); */
   sleep(3);
