@@ -15,7 +15,7 @@ typedef struct {
 } list_t;
 
 // Construtor
-list_t *lista_create() {
+list_t *list_create() {
     list_t *list = (list_t*)malloc(sizeof(list_t));
     list->size = 0;
     list->head = NULL;
@@ -23,7 +23,7 @@ list_t *lista_create() {
 }
 
 // Destrutor
-void lista_destroy(list_t *list) {
+void list_destroy(list_t *list) {
     node_t *node = list->head;
     while(node != NULL) {
         list->head = node->next;
@@ -45,9 +45,14 @@ void list_insert(list_t *list, int key, char *data) {
     }
     list->last = node;
     list->size++;
-    node->data = data;
-    node->key = key;
     node->next = NULL;
+    node->key = key;
+
+    int string_size = 0;
+    while(data[string_size++] != '\0');
+    char *data_string = (char*)malloc(string_size * sizeof(char));
+    data_string = data;
+    node->data = data_string;    
 }
 
 void list_sort(list_t *list) {
@@ -58,7 +63,6 @@ void list_sort(list_t *list) {
         node_t *node = list->head;
         while(node != NULL) {
             if(node->next != NULL && node->key > node->next->key) {
-                printf("changed %d %d\n", node->key, node->next->key);
                 node_t *next = node->next;
 
                 if(list->head == node) { list->head = next; }
@@ -90,7 +94,7 @@ void list_print(list_t *list) {
 
 
 int main(void) {
-    list_t *list = lista_create();
+    list_t *list = list_create();
 
     list_insert(list, 3, "bill");
     list_insert(list, 4, "neil");
@@ -105,5 +109,5 @@ int main(void) {
 
     list_print(list);
 
-    lista_destroy(list);
+    list_destroy(list);
 }
