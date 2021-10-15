@@ -5,4 +5,3 @@ project(pipe_example)
 
 # add the executable
 add_executable(pipe pipe.c)
-
